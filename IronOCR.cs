@@ -27,14 +27,12 @@ public static class IronOCRDemo
                     if (file.Extension==".pdf")
                     {
                         try
-                        {
-                            
-                            ocrInput.AddPdf(file.FullName);
-                            
+                        {                            
+                            ocrInput.AddPdf(file.FullName);                            
                             ocrInput.Deskew();
                             var ocrResult = ocrTesseract.Read(ocrInput);
                             
-                             pgCount=ocrResult.Pages.Count();
+                            pgCount=ocrResult.Pages.Count();
 
                             var pdf = PdfDocument.FromFile(file.FullName);
                             if (!Directory.Exists(ocredFilesPath))
